@@ -50,6 +50,11 @@ export const ModalDialog = styled.div<{ isShow: boolean }>`
     margin: auto 10%;
   }
 
+  ${IS_MOBILE_SCREEN} {
+    padding: 0.5rem;
+    margin: auto 10%;
+  }
+
   ${({ isShow }) =>
     isShow
       ? `

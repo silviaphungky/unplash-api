@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { IS_TAB_SCREEN } from '@utils/mediaQueries'
+import { IS_MOBILE_SCREEN, IS_TAB_SCREEN } from '@utils/mediaQueries'
 
 export const ImageContainer = styled.div`
   position: relative;
@@ -9,6 +9,10 @@ export const ImageContainer = styled.div`
   display: block;
 
   ${IS_TAB_SCREEN} {
+    height: 50vh;
+  }
+
+  ${IS_MOBILE_SCREEN} {
     height: 50vh;
   }
 `

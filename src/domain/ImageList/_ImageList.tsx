@@ -1,6 +1,18 @@
 import styled from '@emotion/styled'
 import { IS_MOBILE_SCREEN, IS_TAB_SCREEN } from '@utils/mediaQueries'
 
+export const FloatingContainer = styled.div`
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: white;
+  width: 100%;
+`
+
+export const ListContainer = styled.div`
+  margin-top: 7rem;
+`
+
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

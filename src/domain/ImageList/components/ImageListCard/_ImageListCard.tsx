@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { IS_MOBILE_SCREEN, IS_TAB_SCREEN } from '@utils/mediaQueries'
 
 export const ImageContainer = styled.div`
   position: relative;

@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 import {
   Container,
   EmptyText,
+  FloatingContainer,
   IconContainer,
+  ListContainer,
   PaginationText,
 } from './_ImageList'
 import {
@@ -120,53 +122,57 @@ const ImageList = () => {
 
   return (
     <div style={{ padding: '0 1rem' }}>
-      <ImagesListSearchInput keyword={keyword} setKeyword={setKeyword} />
+      <FloatingContainer>
+        <ImagesListSearchInput keyword={keyword} setKeyword={setKeyword} />
 
-      {isSearching && (
-        <>
-          <Shimmer />
-          <Shimmer />
-          <Shimmer />
-          <Shimmer />
-        </>
-      )}
+        {isSearching && (
+          <>
+            <Shimmer />
+            <Shimmer />
+            <Shimmer />
+            <Shimmer />
+          </>
+        )}
 
-      {(isImageNotFound || isFirstLoad) && (
-        <IconContainer>
-          <IconEmptyData />
-          <EmptyText>
-            {isFirstLoad
-              ? `What photo are you looking for?`
-              : 'Try to find another keywords...'}
-          </EmptyText>
-        </IconContainer>
-      )}
+        {(isImageNotFound || isFirstLoad) && (
+          <IconContainer>
+            <IconEmptyData />
+            <EmptyText>
+              {isFirstLoad
+                ? `What photo are you looking for?`
+                : 'Try to find another keywords...'}
+            </EmptyText>
+          </IconContainer>
+        )}
 
-      {images.length > 0 && (
-        <PaginationText>
-          Showing <strong>{page * 10}</strong> photos from{' '}
-          <strong>{totalImages}</strong> photos
-        </PaginationText>
-      )}
+        {images.length > 0 && (
+          <PaginationText>
+            Showing <strong>{page * 10}</strong> photos from{' '}
+            <strong>{totalImages}</strong> photos
+          </PaginationText>
+        )}
+      </FloatingContainer>
 
-      <InfiniteScroll
-        dataLength={images.length}
-        next={handleNext}
-        hasMore={page < totalPages}
-        loader={<h4>Loading...</h4>}
-      >
-        <Container>
-          {images.map((item, i) => {
-            return (
-              <ImageListCard
-                key={`image-${i}`}
-                item={item}
-                handlePreviewImg={handlePreviewImg}
-              />
-            )
-          })}
-        </Container>
-      </InfiniteScroll>
+      <ListContainer>
+        <InfiniteScroll
+          dataLength={images.length}
+          next={handleNext}
+          hasMore={page < totalPages}
+          loader={<h4 style={{ marginTop: '1rem' }}>Loading...</h4>}
+        >
+          <Container>
+            {images.map((item, i) => {
+              return (
+                <ImageListCard
+                  key={`image-${i}`}
+                  item={item}
+                  handlePreviewImg={handlePreviewImg}
+                />
+              )
+            })}
+          </Container>
+        </InfiniteScroll>
+      </ListContainer>
 
       <ImageListPreview
         previewImg={previewImg}
