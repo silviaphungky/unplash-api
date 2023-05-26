@@ -28,4 +28,6 @@ export const EmptyText = styled.h3`
 
 export const PaginationText = styled.div`
   margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.15rem;
 `

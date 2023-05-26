@@ -144,7 +144,8 @@ const ImageList = () => {
 
       {images.length > 0 && (
         <PaginationText>
-          {`Showing ${page * 10} photos from ${totalImages}`}
+          Showing <strong>{page * 10}</strong> photos from{' '}
+          <strong>{totalImages}</strong> photos
         </PaginationText>
       )}
 
